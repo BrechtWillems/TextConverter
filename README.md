@@ -1,5 +1,6 @@
 usage: converter [-h] (-inputfile INPUTFILE | -string STRING)
-                 [-outputfile OUTPUTFILE] [-reverse [REVERSE]]
+                 [-outputfile OUTPUTFILE] [-clipboard [CLIPBOARD]]
+                 [-reverse [REVERSE]]
                  {lower,upper,alternate}
 
 positional arguments:
@@ -10,4 +11,5 @@ optional arguments:
   -inputfile INPUTFILE
   -string STRING
   -outputfile OUTPUTFILE
+  -clipboard [CLIPBOARD]
   -reverse [REVERSE]
