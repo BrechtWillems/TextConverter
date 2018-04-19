@@ -1,5 +1,5 @@
 import argparse
-
+import os
 
 def lower(input):
     output = ""
@@ -35,6 +35,11 @@ def reverse(input):
     return output
 
 
+def clipboard(input):
+    data=input
+    os.system("echo | set /p=%s | clip" % data)
+
+
 def run(args):
     file = ""
     input = ""
@@ -53,6 +58,8 @@ def run(args):
         input = alternate(input)
     if args.reverse:
         input = reverse(input)
+    if args.clipboard:
+        clipboard(input)
     if type(args.outputfile) != type(None):
         file = open(args.outputfile, 'w')
         file.write(input)
@@ -67,6 +74,7 @@ def main():
     group.add_argument('-string')
     parser.add_argument('type', choices=['lower', 'upper', 'alternate'])
     parser.add_argument('-outputfile')
+    parser.add_argument('-clipboard',nargs='?',const=True)
     parser.add_argument('-reverse', nargs='?', const=True)
     parser.set_defaults(func=run)
     args = parser.parse_args()
